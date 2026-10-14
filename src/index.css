@@ -1,0 +1,44 @@
+@font-face { font-family: "Amiri"; font-weight: 400; font-display: swap; src: url("./assets/fonts/amiri-arabic-400-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "Amiri"; font-weight: 700; font-display: swap; src: url("./assets/fonts/amiri-arabic-700-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 400; font-display: swap; src: url("./assets/fonts/ibm-plex-sans-arabic-arabic-400-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 500; font-display: swap; src: url("./assets/fonts/ibm-plex-sans-arabic-arabic-500-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "IBM Plex Sans Arabic"; font-weight: 700; font-display: swap; src: url("./assets/fonts/ibm-plex-sans-arabic-arabic-700-normal.woff2") format("woff2"); unicode-range: U+0600-06FF, U+0750-077F, U+08A0-08FF, U+FB50-FDFF, U+FE70-FEFF; }
+@font-face { font-family: "IBM Plex Sans"; font-weight: 100 700; font-display: swap; src: url("./assets/fonts/ibm-plex-sans-latin-wght-normal.woff2") format("woff2"); }
+@font-face { font-family: "Marcellus"; font-weight: 400; font-display: swap; src: url("./assets/fonts/marcellus-latin-400-normal.woff2") format("woff2"); }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { -webkit-tap-highlight-color: transparent; scroll-behavior: smooth; }
+  body { @apply bg-linen-light font-sans text-coffee-dark antialiased; }
+  ::selection { background: #5A4641; color: #F6EFE9; }
+  :focus-visible { outline: 2px solid #5A4641; outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3 { @apply font-display; font-weight: 700; }
+  [dir="ltr"] h1, [dir="ltr"] h2, [dir="ltr"] h3 { font-weight: 400; letter-spacing: -0.005em; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-site px-5 sm:px-8 lg:px-10; }
+  .label { @apply text-[13px] font-medium text-sand-dark; }
+  .input { @apply w-full rounded-xl border border-coffee/15 bg-white/70 px-4 py-3 text-[15px] text-coffee-dark outline-none transition placeholder:text-slate-light focus:border-coffee focus:bg-white; }
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* Stone-paper texture like the flyer background */
+.paper { isolation: isolate; }
+.paper:not(.fixed):not(.absolute):not(.sticky) { position: relative; }
+.paper::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .03' numOctaves='4' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .78 0 0 0 0 .68 0 0 0 0 .59 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+.grain::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .07;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
+/* perforated edge like a tear-off document stub */
+.perforated { background-image: radial-gradient(circle at 6px 6px, #F6EFE9 4px, transparent 4.5px); background-size: 16px 12px; background-repeat: repeat-x; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

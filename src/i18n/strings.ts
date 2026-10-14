@@ -1,0 +1,21 @@
+export const strings = {
+  nav_home: { ar: 'الرئيسية', en: 'Home' },
+  nav_services: { ar: 'خدماتنا', en: 'Services' },
+  nav_properties: { ar: 'العقارات', en: 'Properties' },
+  nav_about: { ar: 'عن المكتب', en: 'About' },
+  nav_contact: { ar: 'تواصل معنا', en: 'Contact' },
+  brand: { ar: 'مواثيق النماء', en: 'Mawathiq Al-Namaa' },
+  brand_full: { ar: 'مكتب مواثيق النماء للخدمات العقارية', en: 'Mawathiq Al-Namaa Real Estate Services' },
+  brand_sub: { ar: 'للخدمات العقارية', en: 'Real Estate Services' },
+  request: { ar: 'اطلب خدمة', en: 'Request a service' },
+  call: { ar: 'اتصل بنا', en: 'Call us' },
+  whatsapp: { ar: 'واتساب', en: 'WhatsApp' },
+  directions: { ar: 'الاتجاهات', en: 'Directions' },
+  open_now: { ar: 'مفتوح الآن', en: 'Open now' },
+  closed_now: { ar: 'مغلق الآن', en: 'Closed now' },
+  madinah: { ar: 'المدينة المنورة', en: 'Madinah' },
+  more: { ar: 'اعرف المزيد', en: 'Learn more' },
+  all_props: { ar: 'كل العقارات', en: 'All properties' },
+  skip: { ar: 'تخطَّ إلى المحتوى', en: 'Skip to content' },
+} as const
+export type StringKey = keyof typeof strings
